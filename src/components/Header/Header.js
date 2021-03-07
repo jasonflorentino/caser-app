@@ -3,7 +3,7 @@ import "./header.scss";
 const Header = () => {
   return (
     <header className="Header">
-    <h1 className="Header__logo">Caser</h1>
+      <h1 className="Header__logo">Caser</h1>
     </header>
   )
 }
