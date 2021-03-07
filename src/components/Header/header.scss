@@ -1,0 +1,12 @@
+@use "../../styles/variables" as *;
+
+.Header {
+
+  &__logo {
+    width: fit-content;
+    margin-top: 1rem;
+    // border-bottom: .5rem solid $color_accent_primary;
+    color: $color_accent_primary;
+    font-size: 3.5rem;
+  }
+}

@@ -1,0 +1,63 @@
+@use "./variables" as *;
+
+/*===============
+*  MEDIA QUERIES
+* ===============*/
+
+@mixin tablet {
+  @media (min-width: $media_tablet_width) {
+      @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $media_desktop_width) {
+      @content;
+  }
+}
+
+/*============
+*  TYPOGRAPHY
+* ===========*/
+
+@mixin typography_font_default {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  color: $color_dark_primary;
+}
+
+@mixin typography_mobile_paragraph {
+  font-size: .9rem;
+  line-height: 1.15rem;
+}
+
+@mixin typography_mobile_sectionHeader {
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+/*=============
+*  UI ELEMENTS
+* =============*/
+
+@mixin section_header {
+  margin-top: 3rem;
+  padding-top: .25rem;
+  border-top: .15rem solid $color_accent_primary;
+}
+
+@mixin textarea {
+  width: 100%;
+  @include typography_font_default;
+  @include typography_mobile_paragraph;
+  padding: .75rem 1rem;
+  border: 1px solid $color_dark_primary;
+  border-radius: .5rem;
+  resize: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $color_accent_primary;
+    outline: none;
+  }
+}

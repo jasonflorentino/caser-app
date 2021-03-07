@@ -1,0 +1,15 @@
+@use "../../styles/mixins" as *;
+
+.Case {
+  margin-top: 1rem;
+
+  &__name {
+    margin-bottom: .25rem;
+    font-size: 1.5rem;
+  }
+
+  &__textarea {
+    @include textarea;
+    height: 6rem;
+  }
+}

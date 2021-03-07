@@ -1,0 +1,12 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.Cases {
+  &__header {
+    @include section_header;
+  }
+
+  &__heading {
+    @include typography_mobile_sectionHeader;
+  }
+}

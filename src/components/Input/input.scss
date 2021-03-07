@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as *;
+
+.Input {
+  @include section_header;
+
+  &__title {
+    margin-bottom: 1rem;
+    @include typography_mobile_sectionHeader;
+  }
+  
+  &__stats {
+    font-size: .85rem;
+    margin-bottom: .25rem;
+  }
+
+  &__textarea {
+    @include textarea;
+    height: 10rem;
+  }
+}

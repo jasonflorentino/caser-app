@@ -1,0 +1,14 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+
+.App {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-top: .25rem solid $color_accent_primary;
+  background-color: #fcfcfc;
+
+  @include tablet {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
