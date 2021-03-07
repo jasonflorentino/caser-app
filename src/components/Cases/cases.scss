@@ -2,11 +2,23 @@
 @use "../../styles/variables" as *;
 
 .Cases {
+  padding-bottom: 2rem;
+  
   &__header {
     @include section_header;
   }
 
   &__heading {
     @include typography_mobile_sectionHeader;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 }

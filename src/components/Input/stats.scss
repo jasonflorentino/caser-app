@@ -1,0 +1,16 @@
+@use "../../styles/variables" as *;
+
+.Stats {
+  font-size: .75rem;
+  margin-bottom: .5rem;
+  color: #666;
+
+  &__stat {
+    margin-right: .5rem;
+  }
+
+  &__num {
+    color: $color_accent_primary;
+    font-weight: 700;
+  }
+}

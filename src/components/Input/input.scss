@@ -7,11 +7,6 @@
     margin-bottom: 1rem;
     @include typography_mobile_sectionHeader;
   }
-  
-  &__stats {
-    font-size: .85rem;
-    margin-bottom: .25rem;
-  }
 
   &__textarea {
     @include textarea;

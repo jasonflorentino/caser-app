@@ -1,10 +1,11 @@
+import Stats from "./Stats";
 import "./input.scss"
 
 const Input = ({ text, inputHandler }) => {
 
   const countWords = (str) => {
     let words = 0;
-    let newLines = str.length ? 1 : 0;
+    let newLines = 0;
     let inWord = false;
     let i = 0;
     while(i<str.length) {
@@ -21,15 +22,13 @@ const Input = ({ text, inputHandler }) => {
     return [words, newLines];
   }
 
-  const [wordCount, lineCount] = countWords(text);
+  const [words, lines] = countWords(text);
 
   return (
     <section className="Input">
       <header className="Input__header">
         <h2 className="Input__title">Paste your text here</h2>
-        <p className="Input__stats">
-          {text.length}/10,000 Chars • {wordCount} Word{wordCount===1?null:"s"} • {lineCount} Line{lineCount===1?null:"s"}¹
-        </p>
+        <Stats len={text.length} words={words} lines={lines} />
       </header>
       <textarea
         className="Input__textarea"
@@ -37,7 +36,7 @@ const Input = ({ text, inputHandler }) => {
         name="input"
         value={ text }
         onChange={ inputHandler }
-        placeholder="Paste your text here"
+        placeholder="Paste or type your text here"
         autoComplete="off">
       </textarea>
     </section>
