@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Cases from "./components/Cases";
+import Footer from "./components/Footer";
 import "./styles/app.scss";
 
 function App() {
@@ -12,11 +13,14 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header />
-      <Input text={input} inputHandler={handleInput} />
-      <Cases text={input} />
-    </div>
+    <>
+      <div className="App">
+        <Header />
+        <Input text={input} inputHandler={handleInput} />
+        <Cases text={input} />
+      </div>
+      <Footer />
+    </>
   );
 }
 

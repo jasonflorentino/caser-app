@@ -1,0 +1,19 @@
+@use "../../styles/variables" as *;
+
+.Footer {
+  width: 100%;
+  padding: 6rem;
+  background: linear-gradient($color_light_primary, white);
+  display: flex;
+  justify-content: center;
+  
+  &__heading{
+    font-size: .9rem;
+    font-weight: 600;
+    color: lightgray;
+  }
+
+  &__heart {
+    margin-right: .3rem;
+  }
+}
