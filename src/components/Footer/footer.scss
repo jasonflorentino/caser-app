@@ -2,8 +2,10 @@
 
 .Footer {
   width: 100%;
-  padding: 6rem;
+  padding-top: 10rem;
+  padding-bottom: 4rem;
   background: linear-gradient($color_light_primary, white);
+  border-bottom: 4rem solid white;
   display: flex;
   justify-content: center;
   
@@ -14,6 +16,14 @@
   }
 
   &__heart {
-    margin-right: .3rem;
+    padding-left: .3rem;
+    padding-right: .5rem;
+  }
+
+  &__link {
+    padding-left: .3rem;
+    color: inherit;
+    font-size: inherit;
+    text-decoration: none;
   }
 }

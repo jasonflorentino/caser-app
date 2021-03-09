@@ -52,8 +52,9 @@
   @include typography_font_default;
   @include typography_mobile_paragraph;
   padding: .75rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: .3rem;
+  background: white;
+  border: none;
+  border-radius: .5rem;
   resize: none;
 
   &:focus {
@@ -61,18 +62,26 @@
     outline: none;
   }
 
-  &::-webkit-scrollbar {
-    width: .5rem;
-  }
+  /* Coloured Scroll Bar */
+  // &::-webkit-scrollbar {
+  //   width: .5rem;
+  // }
   
-  &::-webkit-scrollbar-track {
-    background: none;
-    border-radius: .25rem;
-  }
+  // &::-webkit-scrollbar-track {
+  //   background: none;
+  //   border-radius: .25rem;
+  // }
   
-  &::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border: .1rem solid white;
-    border-radius: .25rem;
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: #ccc;
+  //   border: .1rem solid white;
+  //   border-radius: .25rem;
+  // }
+
+  /* No Scroll Bar */
+  &::-webkit-scrollbar { /* Chrome, Safari and Opera */
+    display: none;
   }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

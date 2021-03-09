@@ -2,7 +2,7 @@
 @use "../../styles/variables" as *;
 
 .Case {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 
   &__header {
     display: flex;
@@ -21,15 +21,21 @@
   }
 
   &__copyButton {
-    margin-left: 1rem;
+    margin-left: auto;
     padding: .4rem .6rem;
     background: none;
     border: 1px solid $color_accent_primary;
     border-radius: .25rem;
+    transition: all .15s;
 
     &--copied {
       @extend .Case__copyButton;
       color: white;
+      font-weight: 500;
+      background: $color_accent_primary;
+    }
+
+    &:hover {
       background: $color_accent_primary;
     }
 
@@ -38,11 +44,10 @@
     }
   }
 
-  &__copied {
-    margin-left: .5rem;
-    color: $color_accent_primary;
-    font-size: .9rem;
-    font-weight: 500;
+  &__options {
+    margin-bottom: .4rem;
+    padding-top: .4rem;
+    border-top: 1px dashed $color_dark_secondary;
   }
 
   &__checkbox {
@@ -50,11 +55,13 @@
   }
 
   &__label {
-    font-size: .9rem;
+    font-size: .8rem;
+    cursor: pointer;
   }
 
   &__textarea {
     @include textarea;
     height: 6rem;
+    cursor: default;
   }
 }

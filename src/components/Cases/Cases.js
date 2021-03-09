@@ -60,7 +60,7 @@ const Cases = ({ text }) => {
   return (
     <section className="Cases">
       <header className="Cases__header">
-        <h2 className="Cases__heading">Click to Copy</h2>
+        <h2 className="Cases__heading">Click to the buttons Copy</h2>
       </header>
       <main className="Cases__main">
         <div className="Cases__col">

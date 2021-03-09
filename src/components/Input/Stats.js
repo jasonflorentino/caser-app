@@ -10,7 +10,7 @@ const Stats = ({ len, words, lines }) => {
         <span className="Stats__num">{words}</span> Word{words===1?null:"s"}
       </span>
       <span className="Stats__stat">
-        <span className="Stats__num">{lines}</span> Line-break{lines===1?null:"s"}¹
+        <span className="Stats__num">{lines}</span> Line-break{lines===1?null:"s"}
       </span>
     </p>
   )

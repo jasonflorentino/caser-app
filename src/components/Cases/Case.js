@@ -13,9 +13,8 @@ const Case = ({ name, text, optionName, optionValue, optionHandler, wasCopied, c
         : <button className="Case__copyButton" onClick={copyHandler}>Copy</button> }
 
       </header>
-      <div>
       {!!optionName ? 
-        <>
+        <div className="Case__options">
           <input
             className="Case__checkbox"
             type="checkbox"
@@ -24,9 +23,8 @@ const Case = ({ name, text, optionName, optionValue, optionHandler, wasCopied, c
             checked={optionValue}
             onChange={optionHandler} />
           <label className="Case__label" htmlFor={nameNoSpace}>{optionName}</label>
-        </>
-        : null}
-      </div>
+        </div>
+      : null}
       <textarea
         className="Case__textarea"
         type="text"

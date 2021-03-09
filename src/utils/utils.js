@@ -51,7 +51,9 @@ function toCamelCase(str, ignoreBreak=false) {
   while(i<str.length) {
     let c = str.charCodeAt(i)
     if (c === 10 && !ignoreBreak) {
-      out += str[i]; newLine = true;}
+      out += str[i];
+      inWord = false;
+      newLine = true;}
     else if (inWord === false && 
             (newLine === true || i === 0)) {
       inWord = true;
