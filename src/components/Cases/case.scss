@@ -6,17 +6,35 @@
 
   &__header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    margin-bottom: .5rem;
   }
 
   &__name {
     margin-bottom: .25rem;
     font-size: 1.5rem;
-    cursor: pointer;
 
     &--copied {
       @extend .Case__name;
       color: $color_accent_primary;
+    }
+  }
+
+  &__copyButton {
+    margin-left: 1rem;
+    padding: .4rem .6rem;
+    background: none;
+    border: 1px solid $color_accent_primary;
+    border-radius: .25rem;
+
+    &--copied {
+      @extend .Case__copyButton;
+      color: white;
+      background: $color_accent_primary;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 
@@ -38,6 +56,5 @@
   &__textarea {
     @include textarea;
     height: 6rem;
-    cursor: pointer;
   }
 }

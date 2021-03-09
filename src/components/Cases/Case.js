@@ -7,9 +7,14 @@ const Case = ({ name, text, optionName, optionValue, optionHandler, wasCopied, c
   return (
     <section className="Case">
       <header className="Case__header">
-        <h3 className={`Case__name${wasCopied?"--copied":""}`} onClick={copyHandler}>{ name }</h3>
-        {wasCopied ? <span className="Case__copied">Copied!</span> : null}
-        {!!optionName ? 
+        <h3 className={`Case__name${wasCopied?"--copied":""}`}>{ name }</h3>
+        { wasCopied ? 
+          <button className="Case__copyButton--copied">Copied!</button>
+        : <button className="Case__copyButton" onClick={copyHandler}>Copy</button> }
+
+      </header>
+      <div>
+      {!!optionName ? 
         <>
           <input
             className="Case__checkbox"
@@ -21,13 +26,12 @@ const Case = ({ name, text, optionName, optionValue, optionHandler, wasCopied, c
           <label className="Case__label" htmlFor={nameNoSpace}>{optionName}</label>
         </>
         : null}
-      </header>
+      </div>
       <textarea
         className="Case__textarea"
         type="text"
         name={ name }
         value={ text }
-        onClick={copyHandler}
         readOnly>
       </textarea>
     </section>

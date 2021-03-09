@@ -83,7 +83,11 @@ function toPascalCase(str, ignoreBreak=false) {
     if (c === 10 && !ignoreBreak) {
       out += str[i];
       inWord = false;
-    } else if (c <= 45 || c === 47 || (c >= 58 && c <= 64) || (c >= 91 && c <= 96) || (c >= 123 && c <= 126)) {
+    } else if (c <= 45 ||
+               c === 47 ||
+              (c >= 58 && c <= 64) ||
+              (c >= 91 && c <= 96) ||
+              (c >= 123 && c <= 126)) {
       inWord = false;
       out += "";
     }  else if (inWord === false) {
@@ -106,7 +110,10 @@ function toSentenceCase(str) {
     if (c === 33 || c === 46 || c === 63) { // c == ! || . || ?
       inSentence = false;
       out += str[i];
-    } else if (c <= 47 || (c >= 58 && c <= 64) || (c >= 91 && c <= 96) || (c >= 123 && c <= 126)) {
+    } else if (c <= 47 ||
+              (c >= 58 && c <= 64) ||
+              (c >= 91 && c <= 96) ||
+              (c >= 123 && c <= 126)) {
       out += str[i];
     } else if (inSentence === false) {
       inSentence = true;
