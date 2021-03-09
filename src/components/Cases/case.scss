@@ -1,12 +1,8 @@
 @use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
 
 .Case {
   margin-top: 1rem;
-  
-  @include tablet {
-    margin-right: 2rem;
-    width: 40%;
-  }
 
   &__header {
     display: flex;
@@ -16,6 +12,19 @@
   &__name {
     margin-bottom: .25rem;
     font-size: 1.5rem;
+    cursor: pointer;
+
+    &--copied {
+      @extend .Case__name;
+      color: $color_accent_primary;
+    }
+  }
+
+  &__copied {
+    margin-left: .5rem;
+    color: $color_accent_primary;
+    font-size: .9rem;
+    font-weight: 500;
   }
 
   &__checkbox {
@@ -29,5 +38,6 @@
   &__textarea {
     @include textarea;
     height: 6rem;
+    cursor: pointer;
   }
 }

@@ -52,12 +52,27 @@
   @include typography_font_default;
   @include typography_mobile_paragraph;
   padding: .75rem 1rem;
-  border: 1px solid $color_dark_primary;
-  border-radius: .5rem;
+  border: 1px solid #ddd;
+  border-radius: .3rem;
   resize: none;
 
   &:focus {
-    box-shadow: 0 0 0 2px $color_accent_primary;
+    box-shadow: 0 0 0 1px $color_accent_primary;
     outline: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: .5rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: none;
+    border-radius: .25rem;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border: .1rem solid white;
+    border-radius: .25rem;
   }
 }

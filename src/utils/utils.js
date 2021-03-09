@@ -1,4 +1,91 @@
-export { toTitleCaseAll, toTitleCase };
+export { toTitleCaseAll, toTitleCase, toKebabCase, toSnakeCase, toCamelCase, toPascalCase };
+
+function toKebabCase(str, ignoreBreak=false) {
+  let out = ""
+  let i = 0;
+  while(i<str.length) {
+    let c = str.charCodeAt(i)
+    if (c === 10 && !ignoreBreak) {
+      out += str[i];
+    }
+    else if (c <= 47 || (c >= 91 && c <= 96)) {
+      out += "-";
+    } else {
+      out += str[i].toLowerCase();
+    }
+    i++
+  }
+  return out;
+}
+
+function toSnakeCase(str, ignoreBreak=false) {
+  let out = ""
+  let i = 0;
+  while(i<str.length) {
+    let c = str.charCodeAt(i)
+    if (c === 10 && !ignoreBreak) {
+      out += str[i];
+    }
+    else if (c <= 47 || (c >= 91 && c <= 96)) {
+      out += "_";
+    } else {
+      out += str[i].toLowerCase();
+    }
+    i++
+  }
+  return out;
+}
+
+function toCamelCase(str, ignoreBreak=false) {
+  let out = ""
+  let inWord = false;
+  let newLine = false;
+  let i = 0;
+  while(i<str.length) {
+    let c = str.charCodeAt(i)
+    if (c === 10 && !ignoreBreak) {
+      out += str[i];
+      newLine = true;
+    } else if (inWord === false && (newLine === false || i === 0)) {
+      inWord = true;
+      newLine = true;
+      out += str[i].toLowerCase();
+    } else if (c <= 47 || (c >= 91 && c <= 96)) {
+      inWord = false;
+      out += "";
+    }  else if (inWord === false) {
+      inWord = true;
+      out += str[i].toUpperCase();
+    } else {
+      out += str[i].toLowerCase();
+    }
+    i++
+  }
+  return out;
+}
+
+function toPascalCase(str, ignoreBreak=false) {
+  let out = ""
+  let inWord = false;
+  let i = 0;
+  while(i<str.length) {
+    let c = str.charCodeAt(i)
+    if (c === 10 && !ignoreBreak) {
+      out += str[i];
+      inWord = false;
+    } else if (c <= 47 || (c >= 91 && c <= 96)) {
+      inWord = false;
+      out += "";
+    }  else if (inWord === false) {
+      inWord = true;
+      out += str[i].toUpperCase();
+    } else {
+      out += str[i].toLowerCase();
+    }
+    i++
+  }
+  return out;
+}
 
 function toTitleCaseAll(str) {
   let out = ""

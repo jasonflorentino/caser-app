@@ -18,7 +18,15 @@
     
     @include tablet {
       flex-direction: row;
-      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__col {
+    width: 100%;
+
+    @include tablet {
+      width: 48%;
     }
   }
 }
