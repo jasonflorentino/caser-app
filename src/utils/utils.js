@@ -1,18 +1,25 @@
-export { toTitleCaseAll, toTitleCase, toKebabCase, toSnakeCase, toCamelCase, toPascalCase };
+export { toTitleCaseAll, 
+         toTitleCase,
+         toKebabCase,
+         toSnakeCase,
+         toCamelCase,
+         toPascalCase,
+         toSentenceCase
+        };
 
 function toKebabCase(str, ignoreBreak=false) {
   let out = ""
   let i = 0;
   while(i<str.length) {
     let c = str.charCodeAt(i)
-    if (c === 10 && !ignoreBreak) {
-      out += str[i];
-    }
-    else if (c <= 47 || (c >= 91 && c <= 96)) {
-      out += "-";
-    } else {
-      out += str[i].toLowerCase();
-    }
+    if (c === 10 && !ignoreBreak) out += str[i];
+    else if (c <= 45 || 
+             c === 47 ||
+            (c >= 58 && c <= 64) ||
+            (c >= 91 && c <= 96) ||
+            (c >= 123 && c <= 126)) {
+      out += "-";}
+    else out += str[i].toLowerCase();
     i++
   }
   return out;
@@ -23,14 +30,14 @@ function toSnakeCase(str, ignoreBreak=false) {
   let i = 0;
   while(i<str.length) {
     let c = str.charCodeAt(i)
-    if (c === 10 && !ignoreBreak) {
-      out += str[i];
-    }
-    else if (c <= 47 || (c >= 91 && c <= 96)) {
-      out += "_";
-    } else {
-      out += str[i].toLowerCase();
-    }
+    if (c === 10 && !ignoreBreak) out += str[i];
+    else if (c <= 45 ||
+             c === 47 ||
+            (c >= 58 && c <= 64) ||
+            (c >= 91 && c <= 96) ||
+            (c >= 123 && c <= 126)) {
+      out += "_";}
+    else out += str[i].toLowerCase();
     i++
   }
   return out;
@@ -44,21 +51,24 @@ function toCamelCase(str, ignoreBreak=false) {
   while(i<str.length) {
     let c = str.charCodeAt(i)
     if (c === 10 && !ignoreBreak) {
-      out += str[i];
-      newLine = true;
-    } else if (inWord === false && (newLine === false || i === 0)) {
+      out += str[i]; newLine = true;}
+    else if (inWord === false && 
+            (newLine === true || i === 0)) {
       inWord = true;
-      newLine = true;
-      out += str[i].toLowerCase();
-    } else if (c <= 47 || (c >= 91 && c <= 96)) {
+      newLine = false;
+      out += str[i].toLowerCase();}
+    else if (c <= 45 ||
+             c === 47 ||
+            (c >= 58 && c <= 64) ||
+            (c >= 91 && c <= 96) ||
+            (c >= 123 && c <= 126)) {
       inWord = false;
-      out += "";
-    }  else if (inWord === false) {
+      out += "";}
+    else if (inWord === false) {
       inWord = true;
-      out += str[i].toUpperCase();
-    } else {
-      out += str[i].toLowerCase();
-    }
+      out += str[i].toUpperCase();}
+    else {
+      out += str[i].toLowerCase();}
     i++
   }
   return out;
@@ -73,7 +83,7 @@ function toPascalCase(str, ignoreBreak=false) {
     if (c === 10 && !ignoreBreak) {
       out += str[i];
       inWord = false;
-    } else if (c <= 47 || (c >= 91 && c <= 96)) {
+    } else if (c <= 45 || c === 47 || (c >= 58 && c <= 64) || (c >= 91 && c <= 96) || (c >= 123 && c <= 126)) {
       inWord = false;
       out += "";
     }  else if (inWord === false) {
@@ -81,6 +91,28 @@ function toPascalCase(str, ignoreBreak=false) {
       out += str[i].toUpperCase();
     } else {
       out += str[i].toLowerCase();
+    }
+    i++
+  }
+  return out;
+}
+
+function toSentenceCase(str) {
+  let out = ""
+  let inSentence = false;
+  let i = 0;
+  while(i<str.length) {
+    let c = str.charCodeAt(i)
+    if (c === 33 || c === 46 || c === 63) { // c == ! || . || ?
+      inSentence = false;
+      out += str[i];
+    } else if (c <= 47 || (c >= 58 && c <= 64) || (c >= 91 && c <= 96) || (c >= 123 && c <= 126)) {
+      out += str[i];
+    } else if (inSentence === false) {
+      inSentence = true;
+      out += str[i].toUpperCase();
+    } else {
+      out += str[i];
     }
     i++
   }
@@ -149,22 +181,22 @@ function toTitleCase(Str) {
   const toChange = wordsToChange(Str);
   let s = Str.slice();
   const re = {
-    "a": /(\s+)(A)(\s+)/g,
-    "an": /(\s+)(An)(\s+)/g,
-    "and": /(\s+)(And)(\s+)/g,
-    "at": /(\s+)(At)(\s+)/g,
-    "but": /(\s+)(But)(\s+)/g,
-    "by": /(\s+)(By)(\s+)/g,
-    "for": /(\s+)(For)(\s+)/g,
-    "nor": /(\s+)(Nor)(\s+)/g,
-    "of": /(\s+)(Of)(\s+)/g,
-    "on": /(\s+)(On)(\s+)/g,
-    "or": /(\s+)(Or)(\s+)/g,
-    "so": /(\s+)(So)(\s+)/g,
-    "the": /(\s+)(The)(\s+)/g,
-    "to": /(\s+)(To)(\s+)/g,
-    "with": /(\s+)(With)(\s+)/g,
-    "yet": /(\s+)(Yet)(\s+)/g,
+    "a": /([ \t]+)(A)([ \t]+)/g,
+    "an": /([ \t]+)(An)([ \t]+)/g,
+    "and": /([ \t]+)(And)([ \t]+)/g,
+    "at": /([ \t]+)(At)([ \t]+)/g,
+    "but": /([ \t]+)(But)([ \t]+)/g,
+    "by": /([ \t]+)(By)([ \t]+)/g,
+    "for": /([ \t]+)(For)([ \t]+)/g,
+    "nor": /([ \t]+)(Nor)([ \t]+)/g,
+    "of": /([ \t]+)(Of)([ \t]+)/g,
+    "on": /([ \t]+)(On)([ \t]+)/g,
+    "or": /([ \t]+)(Or)([ \t]+)/g,
+    "so": /([ \t]+)(So)([ \t]+)/g,
+    "the": /([ \t]+)(The)([ \t]+)/g,
+    "to": /([ \t]+)(To)([ \t]+)/g,
+    "with": /([ \t]+)(With)([ \t]+)/g,
+    "yet": /([ \t]+)(Yet)([ \t]+)/g,
   }
   for (let word in toChange) {
     if (toChange[word] === true) {

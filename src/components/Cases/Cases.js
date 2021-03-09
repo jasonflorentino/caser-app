@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { toTitleCaseAll, toTitleCase, toKebabCase, toSnakeCase, toCamelCase, toPascalCase } from "../../utils/utils";
+import { toTitleCaseAll, toTitleCase, toKebabCase, toSnakeCase, toCamelCase, toPascalCase, toSentenceCase } from "../../utils/utils";
 import Case from "./Case";
 import "./cases.scss"
 
@@ -28,6 +28,10 @@ const Cases = ({ text }) => {
   /* LOWER CASE */
   const [wasLowerCopied, setWasLowerCopied] = useState(false);
   const textLowerCase = text.toLowerCase();
+
+  /* SENTENCE CASE */
+  const [wasSentenceCopied, setWasSentenceCopied] = useState(false);
+  const textSentenceCase = toSentenceCase(text);
 
   /* KEBAB CASE */
   const [isKebabCaseBreak, setIsKebabCaseBreak] = useState(false);
@@ -78,6 +82,11 @@ const Cases = ({ text }) => {
             text={textLowerCase}
             wasCopied={wasLowerCopied}
             copyHandler={()=>{handleCopy(textLowerCase,setWasLowerCopied)}} />
+          <Case
+            name={"Sentence case"}
+            text={textSentenceCase}
+            wasCopied={wasSentenceCopied}
+            copyHandler={()=>{handleCopy(textSentenceCase,setWasSentenceCopied)}} />
         </div>
         <div className="Cases__col">
           <Case
