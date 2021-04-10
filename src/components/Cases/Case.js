@@ -1,17 +1,22 @@
 import "./case.scss"
 
-const Case = ({ name, text, optionName, optionValue, optionHandler, wasCopied, copyHandler }) => {
+const Case = ({ name, 
+                text, 
+                optionName, 
+                optionValue, 
+                optionHandler, 
+                wasCopied, 
+                copyHandler }) => {
 
   const nameNoSpace = name.replace(/\s/g,'')
   
   return (
     <section className="Case">
       <header className="Case__header">
-        <h3 className={`Case__name${wasCopied?"--copied":""}`}>{ name }</h3>
+        <h3 className={`Case__name${wasCopied?"--copied":""}`}>{name}</h3>
         { wasCopied ? 
           <button className="Case__copyButton--copied">Copied!</button>
         : <button className="Case__copyButton" onClick={copyHandler}>Copy</button> }
-
       </header>
       {!!optionName ? 
         <div className="Case__options">
@@ -28,8 +33,8 @@ const Case = ({ name, text, optionName, optionValue, optionHandler, wasCopied, c
       <textarea
         className="Case__textarea"
         type="text"
-        name={ name }
-        value={ text }
+        name={name}
+        value={text}
         readOnly>
       </textarea>
     </section>

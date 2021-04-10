@@ -5,10 +5,11 @@ import Cases from "./components/Cases";
 import Footer from "./components/Footer";
 import "./styles/app.scss";
 
-function App() {
+function App() 
+{
   const [input, setInput] = useState("");
 
-  const handleInput = (e) => {
+  const handleInput = e => {
     setInput(e.target.value);
   }
 
@@ -23,6 +24,7 @@ function App() {
   const clearInput = () => {
     setInput("");
   }
+
   return (
     <>
       <div className="App">
@@ -56,6 +58,7 @@ function placeholderPangrams() {
     "Jackdaws love my big sphinx of quartz.",
     "Pack my box with five dozen liquor jugs."
   ]
+
   let output = "";
   pangrams.forEach(pan => output += (pan + "\n"))
   return output;

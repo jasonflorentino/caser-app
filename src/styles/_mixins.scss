@@ -62,22 +62,6 @@
     outline: none;
   }
 
-  /* Coloured Scroll Bar */
-  // &::-webkit-scrollbar {
-  //   width: .5rem;
-  // }
-  
-  // &::-webkit-scrollbar-track {
-  //   background: none;
-  //   border-radius: .25rem;
-  // }
-  
-  // &::-webkit-scrollbar-thumb {
-  //   background-color: #ccc;
-  //   border: .1rem solid white;
-  //   border-radius: .25rem;
-  // }
-
   /* No Scroll Bar */
   &::-webkit-scrollbar { /* Chrome, Safari and Opera */
     display: none;

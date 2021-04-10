@@ -1,7 +1,15 @@
 import { useState } from "react";
-import { toTitleCaseAll, toTitleCase, toKebabCase, toSnakeCase, toCamelCase, toPascalCase, toSentenceCase } from "../../utils/utils";
 import Case from "./Case";
 import "./cases.scss"
+
+import { toTitleCaseAll, 
+         toTitleCase, 
+         toKebabCase, 
+         toSnakeCase, 
+         toCamelCase, 
+         toPascalCase, 
+         toSentenceCase 
+        } from "../../utils/utils";
 
 const Cases = ({ text }) => {
 
@@ -71,22 +79,26 @@ const Cases = ({ text }) => {
             optionValue={isTitleCaseAll}
             optionHandler={handleTitleCaseAll} 
             wasCopied={wasTitleCopied}
-            copyHandler={()=>{handleCopy(textTitleCase,setWasTitleCopied)}} />
+            copyHandler={()=>{handleCopy(textTitleCase,setWasTitleCopied)}} 
+          />
           <Case
             name={"UPPER CASE"}
             text={textUpperCase}
             wasCopied={wasUpperCopied}
-            copyHandler={()=>{handleCopy(textUpperCase,setWasUpperCopied)}} />
+            copyHandler={()=>{handleCopy(textUpperCase,setWasUpperCopied)}} 
+          />
           <Case
             name={"lower case"}
             text={textLowerCase}
             wasCopied={wasLowerCopied}
-            copyHandler={()=>{handleCopy(textLowerCase,setWasLowerCopied)}} />
+            copyHandler={()=>{handleCopy(textLowerCase,setWasLowerCopied)}} 
+          />
           <Case
             name={"Sentence case"}
             text={textSentenceCase}
             wasCopied={wasSentenceCopied}
-            copyHandler={()=>{handleCopy(textSentenceCase,setWasSentenceCopied)}} />
+            copyHandler={()=>{handleCopy(textSentenceCase,setWasSentenceCopied)}} 
+          />
         </div>
         <div className="Cases__col">
           <Case
@@ -96,7 +108,8 @@ const Cases = ({ text }) => {
             optionValue={isCamelCaseBreak}
             optionHandler={handleCamelCaseBreak}
             wasCopied={wasCamelCopied}
-            copyHandler={()=>{handleCopy(textCamelCase,setWasCamelCopied)}} />
+            copyHandler={()=>{handleCopy(textCamelCase,setWasCamelCopied)}} 
+          />
           <Case
             name={"PascalCase"}
             text={textPascalCase}
@@ -104,7 +117,8 @@ const Cases = ({ text }) => {
             optionValue={isPascalCaseBreak}
             optionHandler={handlePascalCaseBreak}
             wasCopied={wasPascalCopied}
-            copyHandler={()=>{handleCopy(textPascalCase,setWasPascalCopied)}} />
+            copyHandler={()=>{handleCopy(textPascalCase,setWasPascalCopied)}} 
+          />
           <Case
             name={"kebab-case"}
             text={textKebabCase}
@@ -112,7 +126,8 @@ const Cases = ({ text }) => {
             optionValue={isKebabCaseBreak}
             optionHandler={handleKebabCaseBreak}
             wasCopied={wasKebabCopied}
-            copyHandler={()=>{handleCopy(textKebabCase,setWasKebabCopied)}} />
+            copyHandler={()=>{handleCopy(textKebabCase,setWasKebabCopied)}} 
+          />
           <Case
             name={"snake_case"}
             text={textSnakeCase}
@@ -120,7 +135,8 @@ const Cases = ({ text }) => {
             optionValue={isSnakeCaseBreak}
             optionHandler={handleSnakeCaseBreak}
             wasCopied={wasSnakeCopied}
-            copyHandler={()=>{handleCopy(textSnakeCase,setWasSnakeCopied)}} />
+            copyHandler={()=>{handleCopy(textSnakeCase,setWasSnakeCopied)}} 
+          />
           </div>
       </main>
     </section>

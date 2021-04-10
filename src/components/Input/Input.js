@@ -2,13 +2,17 @@ import Stats from "./Stats";
 import "./input.scss"
 
 const Input = ({ text, inputHandler, textSetters }) => {
+
   const { pasteLoremIpsum, pastePangrams, clearInput } = textSetters;
+  
   const countWords = (str) => {
     let words = 0;
     let newLines = 0;
     let inWord = false;
     let i = 0;
-    while(i<str.length) {
+
+    while(i<str.length) 
+    {
       let c = str.charCodeAt(i)
       if (c === 10) newLines++;
       if (c <= 32) {
@@ -19,6 +23,7 @@ const Input = ({ text, inputHandler, textSetters }) => {
       }
       i++
     }
+
     return [words, newLines];
   }
 
@@ -44,9 +49,9 @@ const Input = ({ text, inputHandler, textSetters }) => {
         placeholder="Paste or type your text here"
         autoComplete="off">
       </textarea>
-        <button className="Input__button2" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
-        <button className="Input__button2" onClick={pastePangrams}>Paste Pangrams</button>
-        <button className="Input__button2" onClick={clearInput}>Clear</button>
+      <button className="Input__button2" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
+      <button className="Input__button2" onClick={pastePangrams}>Paste Pangrams</button>
+      <button className="Input__button2" onClick={clearInput}>Clear</button>
     </section>
   )
 }

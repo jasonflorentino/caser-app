@@ -7,10 +7,13 @@ export { toTitleCaseAll,
          toSentenceCase
         };
 
-function toKebabCase(str, ignoreBreak=false) {
+function toKebabCase(str, ignoreBreak=false) 
+{
   let out = ""
   let i = 0;
-  while(i<str.length) {
+
+  while(i<str.length) 
+  {
     let c = str.charCodeAt(i)
     if (c === 10 && !ignoreBreak) out += str[i];
     else if (c <= 45 || 
@@ -22,13 +25,17 @@ function toKebabCase(str, ignoreBreak=false) {
     else out += str[i].toLowerCase();
     i++
   }
+
   return out;
 }
 
-function toSnakeCase(str, ignoreBreak=false) {
+function toSnakeCase(str, ignoreBreak=false) 
+{
   let out = ""
   let i = 0;
-  while(i<str.length) {
+
+  while(i<str.length) 
+  {
     let c = str.charCodeAt(i)
     if (c === 10 && !ignoreBreak) out += str[i];
     else if (c <= 45 ||
@@ -40,15 +47,19 @@ function toSnakeCase(str, ignoreBreak=false) {
     else out += str[i].toLowerCase();
     i++
   }
+
   return out;
 }
 
-function toCamelCase(str, ignoreBreak=false) {
+function toCamelCase(str, ignoreBreak=false) 
+{
   let out = ""
   let inWord = false;
   let newLine = false;
   let i = 0;
-  while(i<str.length) {
+
+  while(i<str.length) 
+  {
     let c = str.charCodeAt(i)
     if (c === 10 && !ignoreBreak) {
       out += str[i];
@@ -73,14 +84,18 @@ function toCamelCase(str, ignoreBreak=false) {
       out += str[i].toLowerCase();}
     i++
   }
+
   return out;
 }
 
-function toPascalCase(str, ignoreBreak=false) {
+function toPascalCase(str, ignoreBreak=false) 
+{
   let out = ""
   let inWord = false;
   let i = 0;
-  while(i<str.length) {
+
+  while(i<str.length) 
+  {
     let c = str.charCodeAt(i)
     if (c === 10 && !ignoreBreak) {
       out += str[i];
@@ -100,14 +115,18 @@ function toPascalCase(str, ignoreBreak=false) {
     }
     i++
   }
+
   return out;
 }
 
-function toSentenceCase(str) {
+function toSentenceCase(str) 
+{
   let out = ""
   let inSentence = false;
   let i = 0;
-  while(i<str.length) {
+
+  while(i<str.length) 
+  {
     let c = str.charCodeAt(i)
     if (c === 33 || c === 46 || c === 63) { // c == ! || . || ?
       inSentence = false;
@@ -125,14 +144,18 @@ function toSentenceCase(str) {
     }
     i++
   }
+
   return out;
 }
 
-function toTitleCaseAll(str) {
+function toTitleCaseAll(str) 
+{
   let out = ""
   let inWord = false;
   let i = 0;
-  while(i<str.length) {
+
+  while(i<str.length) 
+  {
     let c = str.charCodeAt(i)
     if (c <= 32) {
       inWord = false;
@@ -145,10 +168,13 @@ function toTitleCaseAll(str) {
     }
     i++
   }
+
   return out;
 }
 
-function wordsToChange(str) {
+function wordsToChange(str) 
+{
+
   const words = {
     "a": false,
     "an": false,
@@ -167,10 +193,13 @@ function wordsToChange(str) {
     "with": false,
     "yet": false,
   }
+
   let word = ""
   let i = 0;
   let inWord = false;
-  while(i<str.length) {
+
+  while(i<str.length) 
+  {
     let c = str.charCodeAt(i)
     if (c > 32) {
       word += str[i];
@@ -183,10 +212,12 @@ function wordsToChange(str) {
     }
     i++
   }
+
   return words;
 }
 
-function toTitleCase(Str) {
+function toTitleCase(Str) 
+{
   const toChange = wordsToChange(Str);
   let s = Str.slice();
   const re = {
@@ -207,10 +238,12 @@ function toTitleCase(Str) {
     "with": /([ \t]+)(With)([ \t]+)/g,
     "yet": /([ \t]+)(Yet)([ \t]+)/g,
   }
+
   for (let word in toChange) {
     if (toChange[word] === true) {
       s = s.replace(re[word], `$1${word}$3`)
     }
   }
+  
   return s;
 }
