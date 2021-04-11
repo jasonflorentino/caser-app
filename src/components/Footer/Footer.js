@@ -9,8 +9,23 @@ const Footer = () => {
           ❤️
         </span>
         by 
-        <a className="Footer__link" href="https://github.com/jasonflorentino">
+        <a 
+          className="Footer__name Footer__link" 
+          href="https://github.com/jasonflorentino" 
+          target="_blank" 
+          rel="noreferrer"
+        >
           Jason
+        </a>
+      </h2>
+      <h2 className="Footer__heading">
+        <a
+          className="Footer__link" 
+          href="https://github.com/jasonflorentino/caser-app" 
+          target="_blank" 
+          rel="noreferrer"
+        >
+          View on GitHub
         </a>
       </h2>
     </footer>
