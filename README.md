@@ -9,4 +9,4 @@ Enjoy,
 
 —Jason (2021-05-10)
 
-![Screenshot of Caser App](https://raw.githubusercontent.com/jasonflorentino/caser-app/development/demo/screenshot.png)
+![Screenshot of Caser App](https://raw.githubusercontent.com/jasonflorentino/caser-app/main/demo/screenshot.png)
