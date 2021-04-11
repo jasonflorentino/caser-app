@@ -3,6 +3,11 @@
 
 .Case {
   margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+
+  @include tablet {
+    margin-bottom: 0;
+  }
 
   &__header {
     display: flex;
@@ -12,7 +17,7 @@
 
   &__name {
     margin-bottom: .25rem;
-    font-size: 1.5rem;
+    @include font_size_heading;
 
     &--copied {
       @extend .Case__name;
@@ -22,11 +27,15 @@
 
   &__copyButton {
     margin-left: auto;
-    padding: .4rem .6rem;
+    padding: .5rem .9rem;
     background: none;
     border: 1px solid $color_accent_primary;
     border-radius: .25rem;
     transition: all .15s;
+
+    @include tablet {
+      padding: .4rem .6rem;
+    }
 
     &--copied {
       @extend .Case__copyButton;

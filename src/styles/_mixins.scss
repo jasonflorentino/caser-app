@@ -27,6 +27,14 @@
   color: $color_dark_primary;
 }
 
+@mixin font_size_heading {
+  font-size: 1.7rem;
+
+  @include tablet {
+    font-size: 1.5rem;
+  }
+}
+
 @mixin typography_mobile_paragraph {
   font-size: .9rem;
   line-height: 1.15rem;
