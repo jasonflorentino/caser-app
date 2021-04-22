@@ -2,11 +2,10 @@
 @use "../../styles/variables" as *;
 
 .Case {
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin-top: 1.75rem;
 
   @include tablet {
-    margin-bottom: 0;
+    width: 48%;
   }
 
   &__header {
