@@ -16,32 +16,47 @@
   }
 
   &__button {
-    background-color: $color_accent_primary;
-    border: none;
-    color: white;
+    font-size: .9rem;
+    background-color: rgba($color_accent_primary, .09);
+    border: 1px solid $color_accent_primary;
+    color: $color_dark_primary;
     border-radius: .25rem;
-    padding: .4rem .9rem;
-
-    @include tablet {
-      padding: .25rem .5rem;
+    transition-property: background-color, color, transform;
+    transition-duration: .08s;
+    
+    &:hover {
+      background-color: rgba($color_accent_primary, .2);
     }
-  }
-
-  &__button1 {
-    @extend .Input__button;
-    margin-left: 1rem;
-    display: none;
-    @include tablet {
-      display: inline-block;
+    
+    &:active {
+      background-color: rgba($color_accent_primary, .3);
+      transform: translateY(5%);
     }
-  }
 
-  &__button2 {
-    @extend .Input__button;
-    margin-top: .5rem;
-    margin-right: 1rem;
-    @include tablet {
+    &:focus {
+      outline: none;
+    }
+
+    &--tablet {
+      @extend .Input__button;
+      margin-left: 1rem;
+      padding: .4rem .7rem;
       display: none;
+
+      @include tablet {
+        display: inline-block;
+      }
+    }
+
+    &--mobile {
+      @extend .Input__button;
+      margin-top: .5rem;
+      margin-right: 1rem;
+      padding: .4rem .9rem;
+
+      @include tablet {
+        display: none;
+      }
     }
   }
 

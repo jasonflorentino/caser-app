@@ -71,73 +71,69 @@ const Cases = ({ text }) => {
         <h2 className="Cases__heading">Click to the buttons Copy</h2>
       </header>
       <main className="Cases__main">
-        <div className="Cases__col">
-          <Case
-            name={"Title Case"}
-            text={textTitleCase}
-            optionName="All Words"
-            optionValue={isTitleCaseAll}
-            optionHandler={handleTitleCaseAll} 
-            wasCopied={wasTitleCopied}
-            copyHandler={()=>{handleCopy(textTitleCase,setWasTitleCopied)}} 
-          />
-          <Case
-            name={"UPPER CASE"}
-            text={textUpperCase}
-            wasCopied={wasUpperCopied}
-            copyHandler={()=>{handleCopy(textUpperCase,setWasUpperCopied)}} 
-          />
-          <Case
-            name={"lower case"}
-            text={textLowerCase}
-            wasCopied={wasLowerCopied}
-            copyHandler={()=>{handleCopy(textLowerCase,setWasLowerCopied)}} 
-          />
-          <Case
-            name={"Sentence case"}
-            text={textSentenceCase}
-            wasCopied={wasSentenceCopied}
-            copyHandler={()=>{handleCopy(textSentenceCase,setWasSentenceCopied)}} 
-          />
-        </div>
-        <div className="Cases__col">
-          <Case
-            name={"camelCase"}
-            text={textCamelCase}
-            optionName="Ignore line-breaks"
-            optionValue={isCamelCaseBreak}
-            optionHandler={handleCamelCaseBreak}
-            wasCopied={wasCamelCopied}
-            copyHandler={()=>{handleCopy(textCamelCase,setWasCamelCopied)}} 
-          />
-          <Case
-            name={"PascalCase"}
-            text={textPascalCase}
-            optionName="Ignore line-breaks"
-            optionValue={isPascalCaseBreak}
-            optionHandler={handlePascalCaseBreak}
-            wasCopied={wasPascalCopied}
-            copyHandler={()=>{handleCopy(textPascalCase,setWasPascalCopied)}} 
-          />
-          <Case
-            name={"kebab-case"}
-            text={textKebabCase}
-            optionName="Ignore line-breaks"
-            optionValue={isKebabCaseBreak}
-            optionHandler={handleKebabCaseBreak}
-            wasCopied={wasKebabCopied}
-            copyHandler={()=>{handleCopy(textKebabCase,setWasKebabCopied)}} 
-          />
-          <Case
-            name={"snake_case"}
-            text={textSnakeCase}
-            optionName="Ignore line-breaks"
-            optionValue={isSnakeCaseBreak}
-            optionHandler={handleSnakeCaseBreak}
-            wasCopied={wasSnakeCopied}
-            copyHandler={()=>{handleCopy(textSnakeCase,setWasSnakeCopied)}} 
-          />
-          </div>
+        <Case
+          name={"Title Case"}
+          text={textTitleCase}
+          optionName="All Words"
+          optionValue={isTitleCaseAll}
+          optionHandler={handleTitleCaseAll} 
+          wasCopied={wasTitleCopied}
+          copyHandler={()=>{handleCopy(textTitleCase,setWasTitleCopied)}} 
+        />
+        <Case
+          name={"UPPER CASE"}
+          text={textUpperCase}
+          wasCopied={wasUpperCopied}
+          copyHandler={()=>{handleCopy(textUpperCase,setWasUpperCopied)}} 
+        />
+        <Case
+          name={"lower case"}
+          text={textLowerCase}
+          wasCopied={wasLowerCopied}
+          copyHandler={()=>{handleCopy(textLowerCase,setWasLowerCopied)}} 
+        />
+        <Case
+          name={"Sentence case"}
+          text={textSentenceCase}
+          wasCopied={wasSentenceCopied}
+          copyHandler={()=>{handleCopy(textSentenceCase,setWasSentenceCopied)}} 
+        />
+        <Case
+          name={"camelCase"}
+          text={textCamelCase}
+          optionName="Ignore line-breaks"
+          optionValue={isCamelCaseBreak}
+          optionHandler={handleCamelCaseBreak}
+          wasCopied={wasCamelCopied}
+          copyHandler={()=>{handleCopy(textCamelCase,setWasCamelCopied)}} 
+        />
+        <Case
+          name={"PascalCase"}
+          text={textPascalCase}
+          optionName="Ignore line-breaks"
+          optionValue={isPascalCaseBreak}
+          optionHandler={handlePascalCaseBreak}
+          wasCopied={wasPascalCopied}
+          copyHandler={()=>{handleCopy(textPascalCase,setWasPascalCopied)}} 
+        />
+        <Case
+          name={"kebab-case"}
+          text={textKebabCase}
+          optionName="Ignore line-breaks"
+          optionValue={isKebabCaseBreak}
+          optionHandler={handleKebabCaseBreak}
+          wasCopied={wasKebabCopied}
+          copyHandler={()=>{handleCopy(textKebabCase,setWasKebabCopied)}} 
+        />
+        <Case
+          name={"snake_case"}
+          text={textSnakeCase}
+          optionName="Ignore line-breaks"
+          optionValue={isSnakeCaseBreak}
+          optionHandler={handleSnakeCaseBreak}
+          wasCopied={wasSnakeCopied}
+          copyHandler={()=>{handleCopy(textSnakeCase,setWasSnakeCopied)}} 
+        />
       </main>
     </section>
   )

@@ -35,9 +35,9 @@ const Input = ({ text, inputHandler, textSetters }) => {
         <h2 className="Input__title">Put your text here</h2>
         <div className="Input__details">
           <Stats len={text.length} words={words} lines={lines} />
-          <button className="Input__button1" onClick={clearInput}>Clear</button>
-          <button className="Input__button1" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
-          <button className="Input__button1" onClick={pastePangrams}>Paste Pangrams</button>
+          <button className="Input__button--tablet" onClick={clearInput}>Clear</button>
+          <button className="Input__button--tablet" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
+          <button className="Input__button--tablet" onClick={pastePangrams}>Paste Pangrams</button>
         </div>
       </header>
       <textarea
@@ -49,9 +49,9 @@ const Input = ({ text, inputHandler, textSetters }) => {
         placeholder="Paste or type your text here"
         autoComplete="off">
       </textarea>
-      <button className="Input__button2" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
-      <button className="Input__button2" onClick={pastePangrams}>Paste Pangrams</button>
-      <button className="Input__button2" onClick={clearInput}>Clear</button>
+      <button className="Input__button--mobile" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
+      <button className="Input__button--mobile" onClick={pastePangrams}>Paste Pangrams</button>
+      <button className="Input__button--mobile" onClick={clearInput}>Clear</button>
     </section>
   )
 }
