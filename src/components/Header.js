@@ -1,9 +1,11 @@
+import { Title } from '@mantine/core';
+
 import "./Header.scss";
 
 const Header = () => {
   return (
     <header className="Header">
-      <h1 className="Header__logo">Caser 💼</h1>
+      <Title order={1}>Caser 💼</Title>
     </header>
   )
 }

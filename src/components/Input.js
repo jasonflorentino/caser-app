@@ -1,4 +1,4 @@
-import { Button, Textarea, Title } from '@mantine/core';
+import { Button, Group, Textarea, Title } from '@mantine/core';
 
 import Stats from "./Stats";
 import "./Input.scss"
@@ -12,12 +12,14 @@ export default function Input({ text, inputHandler, textSetters }) {
     <section className="Input">
       <header className="Input__header">
         <Title order={2}>Put your text here</Title>
-        <div className="Input__details">
+        <Group spacing={10}>
           <Stats len={text.length} words={words} lines={lines} />
-          <Button className="Input__tablet" onClick={clearInput}>Clear</Button>
-          <Button className="Input__tablet" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</Button>
-          <Button className="Input__tablet" onClick={pastePangrams}>Paste Pangrams</Button>
-        </div>
+          <Group spacing={10}>
+            <Button className="Input__tablet" onClick={clearInput}>Clear</Button>
+            <Button className="Input__tablet" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</Button>
+            <Button className="Input__tablet" onClick={pastePangrams}>Paste Pangrams</Button>
+          </Group>
+        </Group>
       </header>
       <Textarea
        autosize
@@ -27,9 +29,11 @@ export default function Input({ text, inputHandler, textSetters }) {
        maxRows={6}
        minRows={6}
       />
-      <Button className="Input__mobile" onClick={clearInput}>Clear</Button>
-      <Button className="Input__mobile" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</Button>
-      <Button className="Input__mobile" onClick={pastePangrams}>Paste Pangrams</Button>
+      <Group spacing={10} mt={10}>
+        <Button className="Input__mobile" onClick={clearInput}>Clear</Button>
+        <Button className="Input__mobile" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</Button>
+        <Button className="Input__mobile" onClick={pastePangrams}>Paste Pangrams</Button>
+      </Group>
     </section>
   )
 }
