@@ -14,11 +14,11 @@ import {
 
 export default function Cases({ text }) {
 
-  const handleCopy = (str, setter) => {
+  const handleCopy = (str, setState) => {
     navigator.clipboard.writeText(str)
-    .then(()=>{
-      setter(true, setTimeout(()=>{setter(false)}, 2000));
-    }, ()=>{
+    .then(() => {
+      setState(true, setTimeout(() => setState(false), 2000));
+    }, () => {
       alert("Something went wrong -- Couldn't write to clipboard!")
     });
   }
@@ -79,25 +79,25 @@ export default function Cases({ text }) {
           optionValue={isTitleCaseAll}
           optionHandler={handleTitleCaseAll} 
           wasCopied={wasTitleCopied}
-          copyHandler={()=>{handleCopy(textTitleCase,setWasTitleCopied)}} 
+          copyHandler={() => handleCopy(textTitleCase, setWasTitleCopied)} 
         />
         <Case
           name={"UPPER CASE"}
           text={textUpperCase}
           wasCopied={wasUpperCopied}
-          copyHandler={()=>{handleCopy(textUpperCase,setWasUpperCopied)}} 
+          copyHandler={() => handleCopy(textUpperCase, setWasUpperCopied)} 
         />
         <Case
           name={"lower case"}
           text={textLowerCase}
           wasCopied={wasLowerCopied}
-          copyHandler={()=>{handleCopy(textLowerCase,setWasLowerCopied)}} 
+          copyHandler={() => handleCopy(textLowerCase, setWasLowerCopied)} 
         />
         <Case
           name={"Sentence case"}
           text={textSentenceCase}
           wasCopied={wasSentenceCopied}
-          copyHandler={()=>{handleCopy(textSentenceCase,setWasSentenceCopied)}} 
+          copyHandler={() => handleCopy(textSentenceCase, setWasSentenceCopied)} 
         />
         <Case
           name={"camelCase"}
@@ -106,7 +106,7 @@ export default function Cases({ text }) {
           optionValue={isCamelCaseBreak}
           optionHandler={handleCamelCaseBreak}
           wasCopied={wasCamelCopied}
-          copyHandler={()=>{handleCopy(textCamelCase,setWasCamelCopied)}} 
+          copyHandler={() => handleCopy(textCamelCase, setWasCamelCopied)} 
         />
         <Case
           name={"PascalCase"}
@@ -115,7 +115,7 @@ export default function Cases({ text }) {
           optionValue={isPascalCaseBreak}
           optionHandler={handlePascalCaseBreak}
           wasCopied={wasPascalCopied}
-          copyHandler={()=>{handleCopy(textPascalCase,setWasPascalCopied)}} 
+          copyHandler={() => handleCopy(textPascalCase, setWasPascalCopied)} 
         />
         <Case
           name={"kebab-case"}
@@ -124,7 +124,7 @@ export default function Cases({ text }) {
           optionValue={isKebabCaseBreak}
           optionHandler={handleKebabCaseBreak}
           wasCopied={wasKebabCopied}
-          copyHandler={()=>{handleCopy(textKebabCase,setWasKebabCopied)}} 
+          copyHandler={() => handleCopy(textKebabCase, setWasKebabCopied)} 
         />
         <Case
           name={"snake_case"}
@@ -133,7 +133,7 @@ export default function Cases({ text }) {
           optionValue={isSnakeCaseBreak}
           optionHandler={handleSnakeCaseBreak}
           wasCopied={wasSnakeCopied}
-          copyHandler={()=>{handleCopy(textSnakeCase,setWasSnakeCopied)}} 
+          copyHandler={() => handleCopy(textSnakeCase, setWasSnakeCopied)} 
         />
       </main>
     </section>

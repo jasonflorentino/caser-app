@@ -16,11 +16,14 @@ export default function Case({
     <section className="Case">
       <header className="Case__header">
         <h3 className={`Case__name${wasCopied?"--copied":""}`}>{name}</h3>
-        { wasCopied ? 
-          <button className="Case__copyButton--copied">Copied!</button>
-        : <button className="Case__copyButton" onClick={copyHandler}>Copy</button> }
+        <button 
+          className={`Case__copyButton${wasCopied ? "--copied" : ""}`} 
+          onClick={copyHandler}
+        >
+          {wasCopied ? 'Copied!' : 'Copy'}
+        </button>
       </header>
-      {!!optionName ? 
+      {optionName && (
         <div className="Case__options">
           <input
             className="Case__checkbox"
@@ -28,10 +31,11 @@ export default function Case({
             id={nameNoSpace}
             name={nameNoSpace}
             checked={optionValue}
-            onChange={optionHandler} />
+            onChange={optionHandler} 
+          />
           <label className="Case__label" htmlFor={nameNoSpace}>{optionName}</label>
         </div>
-      : null}
+      )}
       <textarea
         className="Case__textarea"
         type="text"

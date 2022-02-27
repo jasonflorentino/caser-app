@@ -32,7 +32,8 @@ export default function App() {
         <Input
           text={input}
           inputHandler={handleInput}
-          textSetters={{pasteLoremIpsum, pastePangrams, clearInput}} />
+          textSetters={{ pasteLoremIpsum, pastePangrams, clearInput }} 
+        />
         <Cases text={input} />
       </div>
       <Footer />
