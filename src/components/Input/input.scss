@@ -64,4 +64,17 @@
     @include textarea;
     height: 10rem;
   }
+
+  &__mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__tablet {
+    display: none;
+    @include tablet {
+      display: inline-block;
+    }
+  }
 }

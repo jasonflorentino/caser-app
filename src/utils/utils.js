@@ -1,132 +1,68 @@
-export { toTitleCaseAll, 
-         toTitleCase,
-         toKebabCase,
-         toSnakeCase,
-         toCamelCase,
-         toPascalCase,
-         toSentenceCase
-        };
+import { 
+  kebabCase as _kebabCase,
+  snakeCase as _snakeCase,
+  camelCase as _camelCase,
+  startCase as _startCase,
+} from 'lodash';
 
-function toKebabCase(str, ignoreBreak=false) 
-{
-  let out = ""
-  let i = 0;
+export { 
+  toTitleCaseAll, 
+  toTitleCase,
+  toKebabCase,
+  toSnakeCase,
+  toCamelCase,
+  toPascalCase,
+  toSentenceCase,
+};
 
-  while(i<str.length) 
-  {
-    let c = str.charCodeAt(i)
-    if (c === 10 && !ignoreBreak) out += str[i];
-    else if (c <= 45 || 
-             c === 47 ||
-            (c >= 58 && c <= 64) ||
-            (c >= 91 && c <= 96) ||
-            (c >= 123 && c <= 126)) {
-      out += "-";}
-    else out += str[i].toLowerCase();
-    i++
+function toKebabCase(str, ignoreBreak=false) {
+  if (ignoreBreak) {
+    return _kebabCase(str);
+  } else {
+    return str.split('\n').map(_kebabCase).join('\n');
   }
-
-  return out;
 }
 
-function toSnakeCase(str, ignoreBreak=false) 
-{
-  let out = ""
-  let i = 0;
-
-  while(i<str.length) 
-  {
-    let c = str.charCodeAt(i)
-    if (c === 10 && !ignoreBreak) out += str[i];
-    else if (c <= 45 ||
-             c === 47 ||
-            (c >= 58 && c <= 64) ||
-            (c >= 91 && c <= 96) ||
-            (c >= 123 && c <= 126)) {
-      out += "_";}
-    else out += str[i].toLowerCase();
-    i++
+function toSnakeCase(str, ignoreBreak=false) {
+  if (ignoreBreak) {
+    return _snakeCase(str);
+  } else {
+    return str.split('\n').map(_snakeCase).join('\n');
   }
-
-  return out;
 }
 
-function toCamelCase(str, ignoreBreak=false) 
-{
-  let out = ""
-  let inWord = false;
-  let newLine = false;
-  let i = 0;
-
-  while(i<str.length) 
-  {
-    let c = str.charCodeAt(i)
-    if (c === 10 && !ignoreBreak) {
-      out += str[i];
-      inWord = false;
-      newLine = true;}
-    else if (inWord === false && 
-            (newLine === true || i === 0)) {
-      inWord = true;
-      newLine = false;
-      out += str[i].toLowerCase();}
-    else if (c <= 45 ||
-             c === 47 ||
-            (c >= 58 && c <= 64) ||
-            (c >= 91 && c <= 96) ||
-            (c >= 123 && c <= 126)) {
-      inWord = false;
-      out += "";}
-    else if (inWord === false) {
-      inWord = true;
-      out += str[i].toUpperCase();}
-    else {
-      out += str[i].toLowerCase();}
-    i++
+function toCamelCase(str, ignoreBreak=false) {
+  if (ignoreBreak) {
+    return _camelCase(str);
+  } else {
+    return str.split('\n').map(_camelCase).join('\n');
   }
-
-  return out;
 }
 
-function toPascalCase(str, ignoreBreak=false) 
-{
-  let out = ""
-  let inWord = false;
-  let i = 0;
-
-  while(i<str.length) 
-  {
-    let c = str.charCodeAt(i)
-    if (c === 10 && !ignoreBreak) {
-      out += str[i];
-      inWord = false;
-    } else if (c <= 45 ||
-               c === 47 ||
-              (c >= 58 && c <= 64) ||
-              (c >= 91 && c <= 96) ||
-              (c >= 123 && c <= 126)) {
-      inWord = false;
-      out += "";
-    }  else if (inWord === false) {
-      inWord = true;
-      out += str[i].toUpperCase();
-    } else {
-      out += str[i].toLowerCase();
-    }
-    i++
+function toPascalCase(str, ignoreBreak=false) {
+  if (ignoreBreak) {
+    return str
+      .trim()
+      .split(/\s+/)
+      .map(
+        (word) => _startCase(
+          word
+            .replace(/\W/g, '')
+            .toLowerCase()
+        )
+      )
+      .join('');
+  } else {
+    return str.split('\n').map((line) => toPascalCase(line, true)).join('\n');
   }
-
-  return out;
 }
 
-function toSentenceCase(str) 
-{
+function toSentenceCase(str) {
   let out = ""
   let inSentence = false;
   let i = 0;
 
-  while(i<str.length) 
-  {
+  while(i < str.length) {
     let c = str.charCodeAt(i)
     if (c === 33 || c === 46 || c === 63) { // c == ! || . || ?
       inSentence = false;
@@ -148,16 +84,14 @@ function toSentenceCase(str)
   return out;
 }
 
-function toTitleCaseAll(str) 
-{
+function toTitleCaseAll(str) {
   let out = ""
   let inWord = false;
   let i = 0;
+  const lettersNumbers = /[\w|\d]/;
 
-  while(i<str.length) 
-  {
-    let c = str.charCodeAt(i)
-    if (c <= 32) {
+  while(i < str.length) {
+    if (!lettersNumbers.test(str[i])) {
       inWord = false;
       out += str[i];
     } else if (inWord === false) {
@@ -172,9 +106,7 @@ function toTitleCaseAll(str)
   return out;
 }
 
-function wordsToChange(str) 
-{
-
+function wordsToChange(str) {
   const words = {
     "a": false,
     "an": false,
@@ -198,8 +130,7 @@ function wordsToChange(str)
   let i = 0;
   let inWord = false;
 
-  while(i<str.length) 
-  {
+  while(i < str.length) {
     let c = str.charCodeAt(i)
     if (c > 32) {
       word += str[i];
@@ -216,8 +147,7 @@ function wordsToChange(str)
   return words;
 }
 
-function toTitleCase(Str) 
-{
+function toTitleCase(Str) {
   const toChange = wordsToChange(Str);
   let s = Str.slice();
   const re = {

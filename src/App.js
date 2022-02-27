@@ -32,7 +32,7 @@ export default function App() {
         <Input
           text={input}
           inputHandler={handleInput}
-          textSetters={{pasteLoremIpsum, pastePangrams, clearInput}} 
+          textSetters={{ pasteLoremIpsum, pastePangrams, clearInput }} 
         />
         <Cases text={input} />
       </div>
@@ -47,7 +47,7 @@ function placeholderIpsum() {
 
 function placeholderPangrams() {
   const pangrams = [
-    "The quick brown fox jumps over the lazy dog",
+    "The quick brown fox jumps over the lazy dog.",
     "Waltz, bad nymph, for quick jigs vex.",
     "Jived fox nymph grabs quick waltz.",
     "Glib jocks quiz nymph to vex dwarf.",
@@ -58,7 +58,5 @@ function placeholderPangrams() {
     "Pack my box with five dozen liquor jugs."
   ]
 
-  let output = "";
-  pangrams.forEach(pan => output += (pan + "\n"))
-  return output;
+  return pangrams.join('\n');
 }

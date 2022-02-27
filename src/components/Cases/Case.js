@@ -1,44 +1,37 @@
+import { Button, Checkbox, Textarea, Title } from "@mantine/core"
+
 import "./case.scss"
 
-const Case = ({ name, 
-                text, 
-                optionName, 
-                optionValue, 
-                optionHandler, 
-                wasCopied, 
-                copyHandler }) => {
-
-  const nameNoSpace = name.replace(/\s/g,'')
-  
+export default function Case({ 
+  name, 
+  text, 
+  optionName, 
+  optionValue, 
+  optionHandler, 
+  wasCopied, 
+  copyHandler 
+}) {
   return (
     <section className="Case">
       <header className="Case__header">
-        <h3 className={`Case__name${wasCopied?"--copied":""}`}>{name}</h3>
-        { wasCopied ? 
-          <button className="Case__copyButton--copied">Copied!</button>
-        : <button className="Case__copyButton" onClick={copyHandler}>Copy</button> }
+        <Title order={3}>{name}</Title>
+        <Button onClick={copyHandler}>
+          {wasCopied ? 'Copied!' : 'Copy'}
+        </Button>
       </header>
-      {!!optionName ? 
-        <div className="Case__options">
-          <input
-            className="Case__checkbox"
-            type="checkbox"
-            id={nameNoSpace}
-            name={nameNoSpace}
-            checked={optionValue}
-            onChange={optionHandler} />
-          <label className="Case__label" htmlFor={nameNoSpace}>{optionName}</label>
-        </div>
-      : null}
-      <textarea
-        className="Case__textarea"
-        type="text"
-        name={name}
+      {optionName &&
+        <Checkbox
+          label={optionName}
+          checked={optionValue}
+          onChange={optionHandler} 
+        />
+      }
+      <Textarea
         value={text}
-        readOnly>
-      </textarea>
+        readOnly 
+        maxRows={4}
+        minRows={4}
+      />
     </section>
   )
 }
-
-export default Case;
