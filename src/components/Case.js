@@ -15,7 +15,7 @@ export default function Case({
   return (
     <section className="Case">
       <header className="Case__header">
-        <h3 className={`Case__name${wasCopied?"--copied":""}`}>{name}</h3>
+        <h3 className={`Case__name${wasCopied ? "--copied" : "" }`}>{name}</h3>
         <button 
           className={`Case__copyButton${wasCopied ? "--copied" : ""}`} 
           onClick={copyHandler}
@@ -41,7 +41,8 @@ export default function Case({
         type="text"
         name={name}
         value={text}
-        readOnly>
+        readOnly
+      >
       </textarea>
     </section>
   )

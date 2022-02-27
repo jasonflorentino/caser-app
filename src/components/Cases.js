@@ -10,17 +10,17 @@ import {
   toCamelCase, 
   toPascalCase, 
   toSentenceCase,
-} from "../utils/utils";
+} from "../utils/caseChangers";
 
 export default function Cases({ text }) {
 
   const handleCopy = (str, setState) => {
     navigator.clipboard.writeText(str)
-    .then(() => {
-      setState(true, setTimeout(() => setState(false), 2000));
-    }, () => {
-      alert("Something went wrong -- Couldn't write to clipboard!")
-    });
+      .then(() => {
+        setState(true, setTimeout(() => setState(false), 2000));
+      }, () => {
+        alert("Something went wrong -- Couldn't write to clipboard!")
+      });
   }
 
   /* TITLE CASE */  

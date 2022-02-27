@@ -2,30 +2,7 @@ import Stats from "./Stats";
 import "./Input.scss"
 
 export default function Input({ text, inputHandler, textSetters }) {
-
   const { pasteLoremIpsum, pastePangrams, clearInput } = textSetters;
-  
-  const countWords = (str) => {
-    let words = 0;
-    let newLines = 0;
-    let inWord = false;
-    let i = 0;
-
-    while(i<str.length) 
-    {
-      let c = str.charCodeAt(i)
-      if (c === 10) newLines++;
-      if (c <= 32) {
-        inWord = false;
-      } else if (inWord === false) {
-        inWord = true;
-        words++;
-      }
-      i++
-    }
-
-    return [words, newLines];
-  }
 
   const [words, lines] = countWords(text);
 
@@ -35,9 +12,9 @@ export default function Input({ text, inputHandler, textSetters }) {
         <h2 className="Input__title">Put your text here</h2>
         <div className="Input__details">
           <Stats len={text.length} words={words} lines={lines} />
-          <button className="Input__button--tablet" onClick={clearInput}>Clear</button>
-          <button className="Input__button--tablet" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
-          <button className="Input__button--tablet" onClick={pastePangrams}>Paste Pangrams</button>
+          <TabletButton onClick={clearInput}>Clear</TabletButton>
+          <TabletButton onClick={pasteLoremIpsum}>Paste Lorem Ipsum</TabletButton>
+          <TabletButton onClick={pastePangrams}>Paste Pangrams</TabletButton>
         </div>
       </header>
       <textarea
@@ -49,9 +26,23 @@ export default function Input({ text, inputHandler, textSetters }) {
         placeholder="Paste or type your text here"
         autoComplete="off">
       </textarea>
-      <button className="Input__button--mobile" onClick={pasteLoremIpsum}>Paste Lorem Ipsum</button>
-      <button className="Input__button--mobile" onClick={pastePangrams}>Paste Pangrams</button>
-      <button className="Input__button--mobile" onClick={clearInput}>Clear</button>
+      <MobileButton onClick={pasteLoremIpsum}>Paste Lorem Ipsum</MobileButton>
+      <MobileButton onClick={pastePangrams}>Paste Pangrams</MobileButton>
+      <MobileButton onClick={clearInput}>Clear</MobileButton>
     </section>
   )
+}
+
+function TabletButton({ children, ...props }) {
+  return <button className="Input__button--tablet" {...props}>{children}</button>
+}
+
+function MobileButton({ children, ...props }) {
+  return <button className="Input__button--mobile" {...props}>{children}</button>
+}
+
+function countWords(str) {
+  const lines = str.split("\n").filter((l) => !!l);
+  const words = str.split(/\s/).filter((w) => !!w);
+  return [words.length, lines.length];
 }
