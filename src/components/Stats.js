@@ -1,4 +1,4 @@
-import "./stats.scss";
+import "./Stats.scss";
 
 const Stats = ({ len, words, lines }) => {
   return(

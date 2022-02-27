@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Title } from "@mantine/core"
 
 import Case from "./Case";
-import "./cases.scss"
+import "./Cases.scss"
 
 import { 
   toTitleCaseAll, 
@@ -12,7 +12,7 @@ import {
   toCamelCase, 
   toPascalCase, 
   toSentenceCase 
-} from "../../utils/utils";
+} from "../utils/utils";
 
 const Cases = ({ text }) => {
 

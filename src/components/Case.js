@@ -1,6 +1,6 @@
 import { Button, Checkbox, Textarea, Title } from "@mantine/core"
 
-import "./case.scss"
+import "./Case.scss"
 
 export default function Case({ 
   name, 

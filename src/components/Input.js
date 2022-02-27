@@ -1,7 +1,7 @@
 import { Button, Textarea, Title } from '@mantine/core';
 
 import Stats from "./Stats";
-import "./input.scss"
+import "./Input.scss"
 
 export default function Input({ text, inputHandler, textSetters }) {
   const { pasteLoremIpsum, pastePangrams, clearInput } = textSetters;
