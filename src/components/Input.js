@@ -1,5 +1,5 @@
 import Stats from "./Stats";
-import "./input.scss"
+import "./Input.scss"
 
 const Input = ({ text, inputHandler, textSetters }) => {
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Case from "./Case";
-import "./cases.scss"
+import "./Cases.scss"
 
 import { toTitleCaseAll, 
          toTitleCase, 

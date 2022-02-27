@@ -1,4 +1,4 @@
-import "./case.scss"
+import "./Case.scss"
 
 const Case = ({ name, 
                 text, 
