@@ -1,6 +1,6 @@
 import "./Stats.scss";
 
-const Stats = ({ len, words, lines }) => {
+export default function Stats({ len, words, lines }) {
   return(
     <p className="Stats">
       <span className="Stats__stat">
@@ -15,5 +15,3 @@ const Stats = ({ len, words, lines }) => {
     </p>
   )
 }
-
-export default Stats;

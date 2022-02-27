@@ -1,17 +1,18 @@
 import { useState } from "react";
-import Case from "./Case";
+
 import "./Cases.scss"
+import Case from "./Case";
+import { 
+  toTitleCaseAll, 
+  toTitleCase, 
+  toKebabCase, 
+  toSnakeCase, 
+  toCamelCase, 
+  toPascalCase, 
+  toSentenceCase,
+} from "../utils/utils";
 
-import { toTitleCaseAll, 
-         toTitleCase, 
-         toKebabCase, 
-         toSnakeCase, 
-         toCamelCase, 
-         toPascalCase, 
-         toSentenceCase 
-        } from "../../utils/utils";
-
-const Cases = ({ text }) => {
+export default function Cases({ text }) {
 
   const handleCopy = (str, setter) => {
     navigator.clipboard.writeText(str)
@@ -138,5 +139,3 @@ const Cases = ({ text }) => {
     </section>
   )
 }
-
-export default Cases;

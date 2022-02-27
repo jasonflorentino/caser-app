@@ -1,7 +1,7 @@
 import Stats from "./Stats";
 import "./Input.scss"
 
-const Input = ({ text, inputHandler, textSetters }) => {
+export default function Input({ text, inputHandler, textSetters }) {
 
   const { pasteLoremIpsum, pastePangrams, clearInput } = textSetters;
   
@@ -55,5 +55,3 @@ const Input = ({ text, inputHandler, textSetters }) => {
     </section>
   )
 }
-
-export default Input;

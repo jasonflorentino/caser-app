@@ -1,12 +1,14 @@
 import "./Case.scss"
 
-const Case = ({ name, 
-                text, 
-                optionName, 
-                optionValue, 
-                optionHandler, 
-                wasCopied, 
-                copyHandler }) => {
+export default function Case({ 
+  name, 
+  text, 
+  optionName, 
+  optionValue, 
+  optionHandler, 
+  wasCopied, 
+  copyHandler,
+ }) {
 
   const nameNoSpace = name.replace(/\s/g,'')
   
@@ -40,5 +42,3 @@ const Case = ({ name,
     </section>
   )
 }
-
-export default Case;
